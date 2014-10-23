@@ -1,0 +1,46 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+/*最大的div，用于控制显示的位置*/
+.s1{
+	width:500px;
+	height:300px;
+	border:1px solid #b4b4b4;
+	margin-top:20px;
+	margin-left:100px;
+}
+
+/*用于控制显示图片区域的宽度和高度，能控制放多少图片*/
+.faceul{
+	width:320px;
+	height:250px;
+	border:1px solid red;
+	margin-top:10px;
+	margin-left:10px;
+	/*列表项标志类型*/
+	list-style-type:none;
+	padding:0px;
+}
+
+/*单个图片区域大小*/
+.faceul li{
+	width:50px;
+	height:70px;
+	border:1px solid blue;
+	/*左浮动*/
+	float:left;
+	margin-left:10px;
+	margin-top:10px;
+}
+
+.faceul li img{
+	width:40px;
+	margin-top:5px;
+	margin-left:5px;
+}
+
+.faceul li a{
+	font-size:12px;
+	margin-left:5px;
+}

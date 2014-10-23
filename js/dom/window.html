@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>dom window</title>
+	
+  <script type="text/javascript">
+
+  //删除记录按钮
+  function conf(){
+	//确认框，有确定（True）、取消（False）两个按钮
+	var res = confirm("确定删除？");
+	//确认结果
+	if(res){
+		alert("true");
+	}else{
+		alert("false");
+	}
+  }
+	
+	function sayHello(){
+		alert("hello");
+	}
+	//循环调用某个函数（根据指定时间周期(以ms为单位)）
+	//setInterval("sayHello()",10000000);
+
+	//制作简单时钟
+	function showTime(){
+		//document.writeln(new Date());
+		//在元素间的文本通过对象.innerHTML访问
+		document.getElementById("time").innerHTML = new Date().toLocaleString();
+		document.getElementById("time2").innerText= new Date().toLocaleString();
+	}
+	//循环调用某个函数
+	setInterval("showTime()",1000);
+
+	//指定时间(以ms为单位)）后，调用某个函数
+	//setTimeout("sayHello()",1000);
+	
+	//新窗口句柄
+	var new_window;
+	//打开新窗口
+	function openNew(){
+		//window.open(URL,name,features,replace)
+		new_window = open("function.html","_blank");
+	}
+	//向新窗口传递消息
+	function send(){
+		//new_window实际是新窗口的引用，将信息传递给子窗口
+		new_window.document.getElementById("span1").innerText = "父窗口的消息来了";
+	}
+  </script>
+ </head>
+ <body>
+ 窗口
+  <input type="button" value="删除记录" onclick="conf()" />
+  <div id="time"></div>
+  <div id="time2"></div>
+  <!-- moveTo()：将窗口左上角移动到指定像素点 -->
+  <input type="button" value="移动" onclick="moveTo(100,100)" />
+  <!-- moveBy()：将窗口左上角相对于当前位置移动到指定像素点 -->
+  <input type="button" value="相对移动" onclick="moveBy(-50,-50)" />
+  <br>
+  <br>
+  <!-- resizeTo()：变更窗口大小 -->
+  <input type="button" value="变更大小" onclick="resizeTo(600,800)" />
+  <br>
+  <!-- open()：打开新窗口 -->
+  <input type="button" value="打开新窗口" onclick="openNew()" />
+  <!-- 通信 -->
+  <div id="div1">
+  子窗口消息
+	<span id="span1">消息</span>
+  </div>
+  <input type="button" value="发送消息" onclick="send()" />
+ </body>
+</html>

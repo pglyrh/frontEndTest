@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="c1" width="500px" height="400px" style="border:1px solid red">
+		
+	</canvas>
+	<!--绘制函数由js来提供-->
+	<script type="text/javascript">
+		//得到画布
+		var can1 = document.getElementById('c1');
+		//得到上下文引用，画笔
+		var cxt = can1.getContext("2d");
+
+		/*画出直线*/
+		cxt.moveTo(20,20); /*起点*/
+		cxt.lineTo(20,90); /*终点*/
+		cxt.stroke(); /*画出线*/
+
+		/*画出填充的三角形（路径）*/
+		/*开始新路径*/
+		cxt.beginPath();
+		cxt.moveTo(40,20); /*第一个点*/
+		cxt.lineTo(40,90); /*第二个点*/
+		cxt.lineTo(80,90); /*第二个点*/ 
+		/*闭合路径，将第三个点与第一个点相连*/
+		cxt.closePath();
+		/*填充，实心*/
+		cxt.fill();
+		/*画线，空心*/
+		//cxt.stroke();
+
+		/*画出矩形*/
+		cxt.strokeRect(100,20,50,70);
+		/*填充矩形*/
+		cxt.fillStyle="green"; 
+		cxt.fillRect(170,20,30,70);
+
+		/*画出圆形，arc(x,y,radius,startAngel,endAngel,counterclockwise)*/
+		cxt.beginPath();
+		cxt.arc(250,50,20,0,360,false); 
+		cxt.closePath();
+		cxt.stroke();
+
+		/*填充*/
+		cxt.beginPath();
+		cxt.arc(320,50,20,0,360,false); 
+		cxt.closePath();
+		cxt.fill();
+
+		/*画出图片（drawImage）*/
+		/*1、创建image对象*/
+		var img = new Image();
+		/*2、指定图片源*/
+		img.src = "mario.jpg";
+		/*画出图片*/
+		cxt.drawImage(img,20,100,100,100);
+
+		/*写字，fillText(str,x,y)*/
+		/*设置属性*/
+		cxt.fillStyle="pink"; 
+		cxt.font = "30px 宋体";
+		/*绘制字符串*/
+		cxt.fillText("wakaklala",180,200);
+		/*绘制字符串*/
+		cxt.font = "20px 华文彩云";
+		cxt.fillText("wakaklala",330,200);
+
+	</script>
+</body>
+</html>

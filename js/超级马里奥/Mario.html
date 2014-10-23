@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>超级马里奥</title>
+  <!-- 引入css文件 -->
+  <link type="text/css" rel="stylesheet" href="mario.css"/>
+  <!-- 引入js文件 -->
+  <script src="funs.js" ></script>
+
+  <script type="text/javascript">
+	//创建Mario对象
+	var mario = new Mario();
+
+  </script>
+ </head>
+ <body>
+	<!-- 活动区域 
+	<div class="gamediv">
+		<img id="mymario" class="mario" src="mario.jpg"/>
+	</div>-->
+	<table class="controlcenter">
+		<tr>
+			<td colspan="3">控制方向</td>
+		</tr>
+		<tr>
+			<td>**</td>
+			<td><input type="button" value="↑" onclick="marioMove(0)"/></td>
+			<td>**</td>
+		</tr>
+		<tr>
+			<td><input type="button" value="←" onclick="marioMove(3)"/></td>
+			<td>**</td>
+			<!-- 事件机制，onclick=“函数名”（鼠标点击某个对象，函数通常为全局函数，可传入参数） -->
+			<td><input type="button" value="→" onclick="marioMove(1)" /></td>
+		</tr>
+		<tr>
+			<td>**</td>
+			<td><input type="button" value="↓" onclick="marioMove(2)"/></td>
+			<td>**</td>
+		</tr>
+	</table>
+	<div class="gamediv">
+		<!-- mario -->
+		<!--<img id="mymario" src="mario.jpg" style="left:30px;top:25px"/>-->
+		<img id="mymario" src="mario.jpg"/>
+		
+		<!-- mushroom -->
+		<img src="mush.jpg" id="mushroom" />
+	</div>
+ </body>
+</html>

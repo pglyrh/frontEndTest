@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>面向对象</title>
+  
+  <script type="text/javascript">
+	//使用构造函数创建一个类（原型对象）
+	function Person(){
+		var age = 20;	//若这样使用，age属性是私有的，不可以直接通过对象访问
+		this.name = "anper";	//name属性石公开的
+
+		//利用公开方法可以访问到私有属性
+		this.showAge = function(){
+			document.writeln("show age: "+age+"<br>");	//undefined
+			privateShow();
+		}
+
+		//私有方法，只能在Person类中使用
+		function privateShow(){
+			document.writeln("privateShow age: "+age+"<br>");	//undefined
+		}
+	}
+
+	var p1 = new Person();
+
+	document.writeln("p1.name: "+p1.name+"<br>");
+	document.writeln("p1.age: "+p1.age+"<br>");	//undefined
+	p1.showAge();
+
+	//this进阶
+	function test1(){
+		document.writeln("test1(): "+this.v+"<br>");
+	}
+	var v = 90;
+	window.test1();	//同test1()，输出90
+
+	function test2(){
+		//this.v = "test2v";
+		this.abc = function(){
+			document.writeln("abc(): "+this.v+"<br>");
+		}
+	}
+	var t2 = new test2();
+	t2.v = "t2v";
+	t2.abc();	//abc(): t2v
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

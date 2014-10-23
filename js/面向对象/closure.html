@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>闭包</title>
+	
+  <script type="text/javascript">
+  //闭包closure
+	function a(){
+		var i = 0;
+		function b(){
+			alert(++i);
+			alert(i++);
+		}
+		return b;
+	}
+
+	//闭包-->gc
+	A();	//此时内存中有一份i的空间，但执行完，gc会将i回收
+
+	//将i进行闭包，下列用法gc不会把i当做垃圾
+	var c = a();
+	c();
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

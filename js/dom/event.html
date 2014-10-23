@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>dom event2</title>
+	
+  <script type="text/javascript">
+
+  //检查输入内容
+  function conf(e){
+	//判断是否非数字
+	if(e.keyCode < 48 || e.keyCode > 57){
+		alert("输入的不为数字");
+		return false;
+	}
+  }
+ //通过getElementById获取控件后再绑定
+	//不能通过以下方式直接绑定，因为html元素还未加载
+	//document.getElementById("b2").onclick = conf;
+  </script>
+ </head>
+ <body>
+ <p>文本框只接受数字</p>
+ <input type="text" onkeypress="return conf(event)" />
+  <input type="button" value="提交" onclick="" />
+ </body>
+</html>

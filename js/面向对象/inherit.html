@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>三大特性——继承</title>
+	
+  <script type="text/javascript">
+  /*
+	//中学生
+	function MidStu(name,age)
+	{
+		//public
+		this.name = name; 
+		this.age = age;
+
+		//在类中定义公开方法（特权方法），私有方法（内部方法）
+		//可通过实现公开方法，操作私有属性
+		this.showName=function()
+		{
+			alert("Name: "+name);
+		}
+		//计算学费，中学生打八折
+		this.payFee = function(money){
+			document.writeln("应缴："+money*0.8);
+		}
+	}
+	
+	//小学生，与MidStu代码有冗余
+	function Pupil(name,age)
+	{
+		//public
+		this.name = name; 
+		this.age = age;
+
+		this.showName=function()
+		{
+			alert("Name: "+name);
+		}
+		//计算学费，小学生打五折
+		this.payFee = function(money){
+			document.writeln("应缴："+money*0.5);
+		}
+	}
+*/
+	//解决代码冗余-->继承
+	//抽象出一个学生类，将中学生和小学生的共性取出
+	function Stu(name,age){
+		//public
+		this.name = name; 
+		this.age = age;
+		
+		this.showName=function()
+		{
+			alert("Name: "+name);
+		}
+	}
+
+	//继承
+	//中学生
+	function MidStu(name,age){
+		//继承方式
+		this.stu = Stu;
+		this.stu(name,age);	//通过对象冒充，实现继承
+	}
+	//小学生
+	function Pupil(name,age){
+		//继承方式
+		this.stu = Stu;
+		//通过对象冒充，实现继承
+		//必不可少，js是动态语言，若不执行，则不能实现继承效果
+		this.stu(name,age);	
+	}
+
+	//创建实例
+	var midStu = new MidStu("aa",20);
+	midStu.showName();
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

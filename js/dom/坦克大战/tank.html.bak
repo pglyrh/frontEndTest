@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <link rel="stylesheet" href="tankCss.css" type="text/css"/>
+
+  <title>坦克大战1</title>
+	
+  <script type="text/javascript">
+	/*
+  //坦克转向
+	function changeDir(dir){
+		var tan = $("tank");
+		alert(tan);
+		//判断方向
+		switch (dir)
+		{
+			case 0:
+				//alert($(tank).style.backgroundPositionY);
+				alert($("tank").style.backgroundPosition);
+				break;
+			case 1:
+				//tan.style.background-position = "-200px -200px";
+				break;
+		}
+	}*/
+	
+	//循环调用移动函数
+	//setInterval("ballMove()",10);
+
+	function $(idNum){
+		return document.getElementById(idNum);
+	}
+  </script>
+ </head>
+ <!-- 背景图&排列方式 -->
+ <body>
+ <div id="container">
+	<!-- 方向按钮 -->
+	<input type="button" value="上" onclick="changeDir(0)"/>
+	<input type="button" value="右" onclick="changeDir(1)"/>
+	<input type="button" value="下" onclick="changeDir(2)"/>
+	<input type="button" value="左" onclick="changeDir(3)"/>
+ </div>
+
+ <!-- 坦克图片div，通过加载含有四个方向的图片作为背景 -->
+ <!-- 不同的方向显示图片的不同部分 -->
+ <div id="tank">
+	
+ </div>
+ <script type="text/javascript">
+	  //坦克转向
+	function changeDir(dir){
+		var tan = $("tank");
+		//判断方向
+		switch (dir)
+		{
+			case 0:
+				tan.style.backgroundPositionY = "0px";
+				tan.style.backgroundPositionX = "0px";
+				break;
+			case 1:
+				tan.style.backgroundPositionY = "-200px";
+				tan.style.backgroundPositionX = "-200px";
+				break;
+			case 2:
+				tan.style.backgroundPositionY = "0px";
+				tan.style.backgroundPositionX = "-200px";
+				break;
+			case 3:
+				tan.style.backgroundPositionY = "-200px";
+				tan.style.backgroundPositionX = "0px";
+				break;
+		}
+	}
+ </script>
+</body>
+</html>

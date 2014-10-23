@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>面向对象</title>
+  
+  <script type="text/javascript">
+	//使用构造函数创建一个类（原型对象）
+	function Person(name,age){
+		//使用传入的实参初始化属性
+		this.name = name;
+		this.age = age;
+		this.add = "address";
+
+		//输出name值，公开函数，函数名为show
+		//这样分配函数，会使每一个实例都会有这一段代码，可用原型的方式解决
+		this.showName = function(){
+			document.writeln("名字: "+this.name+"<br>");
+		}
+
+		//添加函数，计算1+2+...+n的结果
+		this.compute = function(n){
+			var res = 0;
+			for (var i=1;i<=n ;i++ )
+			{
+				res+=i;
+			}
+			return res;
+		}
+	}
+
+	//动态分配函数
+	function showAge(){
+		document.writeln("年龄: "+this.age+"<br>");
+	}
+
+	var p1 = new Person("Joe",23);
+	p1.showName();
+	//函数指针赋值
+	p1.abc = showAge;
+	p1.abc();
+
+	var p2 = new Person("Jason",21);
+	p2.showName();
+	//另一种添加方式
+	p2.abc = function show(){
+		document.writeln("年龄: "+this.age+"&nbsp;"+"姓名："+this.name+"<br>");
+	}
+	p2.abc();
+
+	//所有对象共享函数，原型方法，绑定到类
+	Person.prototype.showAdd = function(){
+		document.writeln("Address: "+this.add+"<br>");
+	}
+	p1.showAdd();
+
+	document.writeln("计算结果: "+p1.compute(1000)+"<br>");
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

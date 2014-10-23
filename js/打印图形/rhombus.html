@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>打印实心菱形和空心菱形图案</title>
+  
+  <script type="text/javascript">
+	//传入一个参数n，打印2*n-1层的实心菱形图案
+	function print1(n){
+		//将n专为int
+		n = parseInt(n);
+		//alert("n: "+n);
+		//设层为l，总层数为2*n-1
+		//打印
+		for (var l = 1; l<=(2*n-1); l++)
+		{
+			//打印空格，每一层空格数为|n-l|
+			for (var i=0; i<Math.abs(n-l); i++)
+			{
+				document.write("&nbsp;");
+			}
+
+			//打印*，每一层*数为
+			for (var j = 0; j<(2*n-1-2*Math.abs(n-l)); j++)
+			{
+				document.write("*");
+				
+			}
+			document.writeln("<br>");
+		}
+	}
+
+
+	//传入一个参数n，打印2*n-1层的空心菱形图案
+	function print2(n){
+		//将n专为int
+		n = parseInt(n);
+		//alert("n: "+n);
+		//设层为l，总层数为2*n-1
+		//打印
+		for (var l = 1; l<=(2*n-1); l++)
+		{
+			//打印前部分空格，每一层空格数为|n-l|
+			for (var i=0; i<Math.abs(n-l); i++)
+			{
+				document.write("&nbsp;");
+			}
+
+			//打印*，第一层和最后一层只打印一个*，其余层为两个
+			if(l==1 || l==2*n-1){
+				document.writeln("*"+"<br>");
+			}
+			//其余层
+			else{
+				document.write("*");
+				//中间部分空格
+				for (var j = 0; j<(2*n-3-2*Math.abs(n-l)); j++)
+				{
+					document.write("&nbsp;");
+				}
+				//打印第二个*
+				document.writeln("*"+"<br>");
+			}
+		}
+	}
+
+	//调用
+	print1(3);
+	document.writeln("<br>");
+	print2(3);
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

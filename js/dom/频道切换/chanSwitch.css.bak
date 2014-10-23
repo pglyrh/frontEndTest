@@ -1,0 +1,73 @@
+body{
+	font-size:12px;
+}
+
+.div1{
+	/*外部最大的div*/
+	width:126px;
+	height:156px;
+	background-color:pink;
+
+}
+
+.navi{
+	/*导航div*/
+	width:21px;
+	height:156px;
+	
+	/*需要向左浮动，否则换行*/
+	float:left;
+}
+
+.navi ul{
+	/*位置清0*/
+	padding:0px;
+	margin-left:0px;
+	margin-top:0px;
+	float:left;
+}
+
+.navi li{
+	/*列表不要原点*/
+	list-style-type:none;
+	/*标签之间留有一定空隙*/
+	margin-top:5px;
+	/*标签高度*/
+	height:46px;
+	width:21px;
+	background-color:silver;
+	/*文字居中*/
+	text-align:center;
+	float:left;
+	/*垂直居中，与height大小一致*/
+	/*display:inline-block; */
+	line-height:46px;
+
+	cursor:pointer;
+}
+
+.acon{
+	width:101px;
+	height:156px;
+	/*background-color:silver;*/
+	margin-left:4px;
+	padding:0px;
+	float:left;
+}
+
+.acon ul{
+	float:left;
+	margin-left:4px;
+	margin-top:2px;
+	padding:0px;
+}
+
+.acon ul li{
+	list-style-type:none;
+	/*行高*/
+	line-height:19px;
+}
+
+#c2,#c3{
+	visibility:hidden;
+}

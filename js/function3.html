@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>函数</title>
+	
+  <script type="text/javascript">
+	//创建对象的另一种方式
+	var dog = {
+		name:"D1",
+		age:3,
+		sayHello:function(a,b){
+			alert("a+b="+(a+b));
+		}
+	};
+	dog.sayHello(1,2);
+
+	//循环列出对象的所有属性和方法(值) 
+	//对象名['属性名']
+	for (var key in dog )
+	{
+		document.write(dog[key]+"&nbsp;");
+	}
+
+	//当前浏览器的window对象有哪些属性
+	document.writeln("当前浏览器的window对象有哪些属性和方法"+"<br>");
+	for (var key in window )
+	{
+		document.write(key+": "+window[key]+"<br>");
+	}
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

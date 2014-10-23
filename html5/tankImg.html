@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>坦克大战</h1>
+	<!--活动区域-->
+	<canvas id="tankMap" width="400px" height="300px" style="background-color:black">
+		
+	</canvas>
+
+	<script type="text/javascript">
+		//得到画布
+		var can1 = document.getElementById('tankMap');
+		//得到上下文引用，画笔
+		var cxt = can1.getContext("2d");
+
+		//坦克坐标
+		var heroX = 130;
+		var heroY = 200;
+
+		/*使用绘图技术绘制出坦克*/
+		cxt.fillStyle="#ded284";
+		/*选取参照点*/
+		/*轮子*/
+		cxt.fillRect(heroX,heroY,5,30);
+		cxt.fillRect(heroX+15,heroY,5,30);
+		/*坦克主体*/
+		cxt.fillRect(heroX+6,heroY+5,8,20);
+		/*顶盖*/
+		cxt.fillStyle="#ffd972";
+		//cxt.beginPath();
+		cxt.arc(heroX+10,heroY+15,4,0,360,false); 
+		//cxt.closePath();
+		cxt.fill();
+		/*炮筒*/
+		cxt.strokeStyle="#ffd972";
+		cxt.lineWidth=1.5;
+		cxt.beginPath();
+		cxt.moveTo(heroX+10,heroY+15);
+		cxt.lineTo(heroX+10,heroY);
+		cxt.closePath();
+		cxt.stroke();
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- html页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--网页编码-->
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- canvas标签，画布，绘制图形 -->
+	<canvas id="can1" width="100px" height="100px" style="border:1px solid red">		
+	</canvas>
+	<br>
+	<!-- audio&video标签，嵌入音频和视频 -->
+	<!-- video，属性：控制条 -->
+	<video src="F:/movie/女神的新衣 140906_超清.mp4" controls="controls" width="300px" height="3 00px">
+		video
+	</video>
+	<script type="text/javascript">
+	/*画出矩形*/
+		/*获得画布*/
+		var can = document.getElementById('can1');
+		/*得到上下文环境，通过cxt图像绘制图形（画笔），默认黑色
+			返回CanvasRenderingContext2D对象
+		*/
+		var cxt = can.getContext("2d");
+		/*改变颜色*/
+		cxt.fillStyle="red";
+		cxt.fillRect(10,10,20,30);
+	</script>
+</body>
+</html>

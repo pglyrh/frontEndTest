@@ -1,0 +1,14 @@
+#container{
+	/*background-repeat:no-repeat;*/
+}
+
+#tank{
+	position:absolute;
+	background-image:url(direct.jpg);
+	background-repeat:no-repeat;
+	/*确定显示大小*/
+	/*防止图片撑开*/
+	width:200px;
+	height:200px;
+	background-position:-200px 0px;
+}

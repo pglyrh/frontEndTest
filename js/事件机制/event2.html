@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>事件机制(外部css)</title>
+	
+  <!-- 引入css文件 -->
+  <link href="my.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">
+	//"变色"事件
+	//js如何访问元素style属性，进行外观的修改
+	function changeColor(e){
+
+		//获取css文件中所有class选择器，0表示获取的是第一个引用文件，返回集合
+		var ocssRules = document.styleSheets[0].rules;
+		//从ocssRules中取出你希望的class（一般通过下标）
+		var style1 = ocssRules[0];
+		//取出属性style1.style.属性
+		if(e.name == "red"){
+			//注意是backgroundColor，非background-color
+			style1.style.backgroundColor="red";
+		}else{
+			style1.style.backgroundColor="black";
+		}
+	}
+	
+	//页面加载，将鼠标定位到text输入框
+	function textFocus(){
+		document.getElementById("t1").onfocus;
+	}
+
+	//禁止点击右键事件，不弹出菜单
+	function forbidRight(){
+		alert("禁止右键");
+		//不响应
+		return false;
+	}
+	//禁止选中内容
+	function forbidStart(){
+		alert("版权所有");
+		//不响应
+		return false;
+	}
+  </script>
+ </head>
+ <body onload="textFocus()" oncontextmenu="return forbidRight()" onselectstart="forbidStart()">
+ <div>
+	<!-- 通过style来改变style，改变颜色 -->
+	<div id="d1" class="style1">
+		
+	</div>
+	<div>
+		<!-- 传入参数this -->
+		<input type = "button" onclick="changeColor(this)" value = "红色" name="red"/>
+		<input type = "button" onclick="changeColor(this)" value = "黑色" name="black"/>			
+	</div>
+	<input type = "text" id="t1"/>
+ </div>
+ </body>
+</html>

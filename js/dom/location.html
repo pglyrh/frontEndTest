@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>dom window</title>
+	
+  <script type="text/javascript">
+	//刷新页面按钮响应函数
+	function flash(){
+	//利用location对象刷新页面
+		location.reload();
+		//location属性查看
+		var t = "hostname: "+location.hostname+" href: "+location.href+" port: "+location.port;
+
+		alert(t);
+		//显示
+		var text = document.getElementById("t1");
+		text.innerText = t;
+	}
+
+  </script>
+ </head>
+ <body>
+ 窗口<br>
+	
+  <input type="button" value="刷新页面" onclick="flash()" />
+  <br>
+	<!-- location属性显示框 -->
+	<p>显示属性</p>
+	<textarea id="t1" style="width:500px;height:100px;">
+	</textarea>
+  <!--  <input id="t1" style="width:500px;height:100px;" type="text"/>-->
+ </body>
+</html>

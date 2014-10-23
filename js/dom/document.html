@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>document对象</title>
+	
+  <script type="text/javascript">
+
+  //响应函数
+  //查看选择的爱好
+  function hobby(){
+	//name可以重复
+	//获得选择内容，通过控件name返回对象集合
+	var hobbies = document.getElementsByName("hobby");
+	//打印所有选项的长度
+	alert(hobbies.length);
+	//获得选择项
+	for (var i=0;i<hobbies.length ;i++ )
+	{
+		//判断是否被选中
+		if (hobbies[i].checked)
+		{
+			alert("选择的是："+hobbies[i].value);
+		}
+	}
+  }
+
+  //通过标签名来获取对象（元素）
+  function tagTest(){
+	  //查看input控件
+	  var myinputs = document.getElementsByTagName("input");
+	  for (var i=0;i<myinputs.length ;i++ )
+	  {
+		  alert(myinputs[i].value);
+	  }
+  }
+  
+  var i = 1;
+  var idNum;
+  //标注id，返回id值
+  function setIdNum(){
+	idNum = "id"+i;
+	i++;
+	return idNum;
+  }
+
+  //动态创建对象（元素）
+  function createObj(){
+	  //创建元素，参数为标签名（希望创建的）
+	  var newElement = document.createElement("a");
+	  //给新元素添加必要的信息（属性）	  
+	  newElement.href="www.baidu.com";
+	  newElement.innerText="baidu";
+	  //元素id
+	  newElement.id=setIdNum();
+	  alert(newElement.id);
+	  //给元素定位/**/
+	  newElement.style.styleFloat = "left";
+	  newElement.style.marginLeft = "20px";
+	  //添加节点，添加到document文件中（document.body）
+	  //使用appendChild()向一个存在的结点添加一个子节点
+	  var zone = document.getElementById("azone");
+	  zone.appendChild(newElement);
+  }
+
+  //动态删除对象（元素）
+  function deleteObj(){
+	  //删除元素，无所谓原来存在的或者动态创建的
+	  //必须通过id号
+	  document.getElementById("azone").removeChild("document.getElementById(idNum)");
+	  //取出父节点id
+	  document.getElementById("document.getElementById(idNum)").parentNode.id;
+  }
+  </script>
+ </head>
+ <body>
+  <div id="div1">
+	请选择你的爱好<br>
+	<!-- 必须给value赋值，才能被程序获取 -->
+	<input type="checkbox" value="足球" name="hobby"/>足球
+	<input type="checkbox" value="旅游" name="hobby"/>旅游
+	<input type="checkbox" value="音乐" name="hobby"/>音乐
+
+	<input type="button" value="爱好" onclick="hobby()" />
+  </div>
+	<br>
+	<p>查看所有input控件<input type="button" value="input" onclick="tagTest()" /></p>
+	<div>
+		<p>动态的创建一个超链接 <input type="button" value="创建" onclick="createObj()"/>&nbsp;
+			删除一个超链接 <input type="button" value="删除" onclick="deleteObj()"/>
+		</p>
+		<p>超链接区域</p>
+		<div id="azone">
+			
+		</div>
+	</div>
+	
+
+
+ </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>正则表达式</title>
+	
+  <script type="text/javascript">
+  
+  //给一个字符串，找出所有4个数字连在一起的子串
+  //检查输入内容
+  function search(){
+	//获得内容
+	var str = document.getElementById("content").innerText;
+	//正则表达式
+	//var myReg = /(\d){4}/gi; //正则表达式对象，可检索连续4个数字
+	//var myReg = new RegExp("(\\d){4}","gi");  //需转义
+	//指定查找
+	//var myReg = /abc/gi;
+	var myReg = /^(abc)/gi;	//匹配以abc开头的子串，若flag带m则为多行匹配
+	while (res = myReg.exec(str))
+	{
+		//返回一个数组，是对检索处理的结果
+		//该数组的res[0]就是需要找到的文本
+		alert("find: "+res[0]);
+	}
+  }
+
+  //检查输入内容是否匹配某个模式
+  function test(){
+	//获得内容
+	var str = document.getElementById("content").innerText;
+	//正则表达式
+	//指定查找
+	var myReg = /abc/gi;
+	//是否匹配
+	if (myReg.test(str))
+	{
+		alert("include abc");
+	}else{
+		alert("no abc");
+	}
+  }
+
+  //string与正则表达式相关的函数
+  function test2(){
+	//获得内容
+	var str = document.getElementById("content").innerText;
+	//正则表达式
+	//指定查找
+	var myReg = /abc/gi;
+	//返回结果数组
+	var res = str.match(myReg);
+	for (var i=0; i<res.length; i++)
+	{
+		alert(i+" "+res[0]);
+	}
+  }
+
+  //string与正则表达式相关的函数
+  function test3(){
+	//获得内容
+	var str = document.getElementById("content").innerText;
+	//正则表达式
+	//把4个数字，换成“这里原来为4个数”
+	var myReg = /\d{4}/gi;
+	//返回替换后的字符串
+	var res = str.replace(myReg,"这里原来为4个数");
+	document.getElementById("content").innerText = res;
+  }
+
+  //静态属性
+  function test4(){
+	//获得内容
+	var str = document.getElementById("content").innerText;
+	//正则表达式
+	//把4个数字，换成“这里原来为4个数”
+	var myReg = /\d{4}/gi;
+	while (res = myReg.exec(str))
+	{
+		//静态属性
+		alert("index: "+RegExp.index);
+		alert("leftContext: "+RegExp.leftContext);
+		alert("rightContext: "+RegExp.rightContext);
+	}
+  }
+
+  //子表达式、捕获、反向引用
+  //找出4个数字连在一起的子串，并且第一位与第四位相同，第二位与第三位相同
+  function test5(){
+	//获得内容
+	var str = document.getElementById("content").innerText;
+	//正则表达式
+	//反向引用
+	//var myReg = /(\d)(\d)\2\1/gi;
+	//aabbccdd形式
+	//var myReg = /(\d)1(\d)\2(\d)3(\d)\4/gi;
+	//12321-333999111形式，五位数-九位数（每三位相同）
+	var myReg = /(\d){5}-(\d)\2\2(\d)\3\3(\d)\4\4/gi;
+	while (res = myReg.exec(str))
+	{
+		alert("find: "+res[0]);
+	}
+  }
+
+  //元字符
+  function test6(){
+	//获得内容
+	var str = document.getElementById("content").innerText;
+	//限定符
+	//var myReg = /(\d){3,4}/gi;	//{n,m}
+	//var myReg = /(\d)+/gi;	//+（1到任意多次），*（0到任意多次），？（0到1次）
+	//字符匹配符
+	//var myReg = /[a-z]*/gi;	//匹配a-z任一字符
+	//var myReg = /(\w){3}/gi;	//匹配任意三个连续字符（数字，字母）
+	//定位符
+	//var myReg = /^abc/gi;	//匹配字符串开始位置
+	//var myReg = /abc$/gi;	//匹配字符串结束位置
+	var myReg = /a|b|c/gi;	//选择匹配器
+	while (res = myReg.exec(str))
+	{
+		alert("find: "+res[0]);
+	}
+  }
+
+  //电子邮件
+  //一个@，@前面为用户名（字母、数字、_），@后面为域名，以英文结尾
+  function test7(){
+	//获得内容
+	var str = document.getElementById("content").innerText;
+	//难点：@只能出现一次，关键^，必须以字符打头^
+	var myReg = /^(\w)+@([\da-zA-Z]+\.)+(com|cn|net|org)$/;
+	res = myReg.exec(str)
+		alert("find: "+res[0]);
+  }
+
+  </script>
+ </head>
+ <body>
+ <p>文本框</p>
+ <textarea id="content" rows="10" cols="20"></textarea>
+  <input type="button" value="检索" onclick="search()" />
+	<input type="button" value="test()函数" onclick="test()" />
+	  <input type="button" value="match()函数" onclick="test2()" />
+	    <input type="button" value="replace()函数" onclick="test3()" />
+		  <input type="button" value="属性" onclick="test4()" />
+            <input type="button" value="语法" onclick="test5()" />
+			  <input type="button" value="元字符" onclick="test6()" />
+			    <input type="button" value="电子邮件" onclick="test7()" />
+ </body>
+</html>

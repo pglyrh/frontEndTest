@@ -1,0 +1,68 @@
+/*类选择器*/
+.style1{
+	font-weight:bold;
+	background-color:pink;
+	font-size:20px;
+	color:black;
+}
+
+.style3{
+	font-style:italic;
+	text-decoration:underline;
+}
+
+.style4{
+	background-color:yellow;
+	font-size:30px;
+	width:300px;
+}
+
+/*id选择器*/
+#style2{
+	font-size:30px;
+	background-color:silver;
+}
+
+#special_1{
+	font-style:italic;
+	color:red;
+}
+
+/*父子选择器*/
+#style2 span{
+	color:red;
+	font-style:italic;
+}
+
+/*html元素选择器*/
+/*默认字体为橙色*/
+body{
+	color:black;
+}
+
+a:link{
+	color:black;
+	text-decoration:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+a:visited{
+	color:red;
+}
+
+/*通配符选择器，对外边距和内边距清零*/
+*{
+	/*margin:0px;*/
+	/*分别指定*/
+	/*
+	margin-top:10px;
+	margin-left:5px;
+	*/
+	/*顺时针*/
+	margin:10px 0px 0px 5px;
+	padding:0px;
+}
+

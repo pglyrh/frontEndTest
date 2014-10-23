@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>面向对象</title>
+  
+  <script type="text/javascript">
+	//使用构造函数创建一个类（原型对象）
+	function Person(){}
+	//创建一个对象实例
+	var a = new Person();
+	//打出a构造函数
+	document.writeln(a.constructor+"<br>"); //function Person
+	//a的类型 
+	document.writeln(typeof a+"<br>"); //object
+
+	//所有都是对象
+	var b = 123;
+	//打出b构造函数
+	document.writeln(b.constructor+"<br>"); //function Number() { [native code] }
+	//b的类型 
+	document.writeln(typeof b+"<br>"); //number
+
+	var c = "123";
+	//打出c构造函数
+	document.writeln(c.constructor+"<br>"); //function String() { [native code] }
+	//c的类型 
+	document.writeln(typeof c+"<br>"); //string
+
+	//判断一个对象是否是否各类的实例
+	if (a instanceof Person){
+		document.writeln("a是Person"+"<br>");
+	}
+	/*
+	if (a.consturctor == Person)
+	{
+		document.writeln("constructor-a是Person"+"<br>");
+	}
+	*/
+	var p1 = new Person();
+	p1.name="april";
+	document.writeln("p1.name: "+p1.name+"<br>");
+	document.writeln("p1[\"name\"]: "+p1["name"]+"<br>");
+
+	//利用p2访问p1
+	var p2 = p1;
+	document.writeln("p2.name: "+p2.name+"<br>");
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

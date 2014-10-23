@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>表格</title>
+  <!-- <link rel="stylesheet" type="text/css" href="tableCss.css"/>	 -->
+  <script type="text/javascript">	
+	function test(){
+		//取出所有行
+		var myrows = $("heroTable").rows;
+		//alert(myrows.length);
+		//取出某一行，对应于TableRow对象myrows[1]
+		//取出某一单元格，myrows[1].cells[1]
+		//alert(myrows[1].cells[2].innerText);
+		
+		//打印内容
+		for (var i=0; i<myrows.length; i++)
+		{
+			//每一行
+			var row = myrows[i];
+			//遍历每一行
+			for (var j=0; j<row.cells.length; j++)
+			{
+				//alert(row.cells[j].innerText);
+				//每个单元格
+			    //$("print").insertAdjacentText("beforeEnd",row.cells[j].innerText+"\t");
+			}
+		}
+	}
+	
+	//添加行
+	function insertRow(){
+		//判断排名上是否已有
+		/*
+		var myrows = $("heroTable").rows;
+		for (var i=0; i<myrows.length; i++)
+		{
+			var row = myrows[i];
+			if (row.cells[0] == "")
+			{
+				//直接返回
+				return ;
+			}
+		}*/
+		var row = $("heroTable").insertRow();
+		//添加列&内容
+		row.insertCell().innerText = "3";
+		row.insertCell().innerText = "吴用";
+		row.insertCell().innerText = "智多星";
+	}
+
+	function $(idNum){
+		return document.getElementById(idNum);
+	}
+
+  </script>
+ </head>
+ <body>
+
+ <h1>排行榜</h1>
+	<table id="heroTable" border="1px">
+		<tr>
+			<td class="td1">排名</td>
+			<td class="td2">姓名</td>
+			<td class="td3">外号</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>宋江</td>
+			<td>及时雨</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>卢俊义</td>
+			<td>玉麒麟</td>
+		</tr>
+	</table>
+	<br>
+	<input class="but" onclick="test()" type="button" value="test">
+	<h1>打印表格内容</h1>
+	<input type="textarea" id="print" style="width:500px;height:50px"/>
+	<br><br>
+	<!-- 删除宋江行 -->
+	<input class="but" onclick="$('heroTable').deleteRow(1)" type="button" value="删除行">
+	<!-- 插入行 -->
+	<input class="but" onclick="insertRow()" type="button" value="添加行">
+ </body>
+</html>

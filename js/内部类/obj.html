@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>内部类&系统函数</title>
+  
+  <script type="text/javascript">
+	
+	//静态类，Math
+	document.writeln("Math"+"<br>");
+	document.writeln("绝对值 = "+Math.abs(-12)+"<br>");
+	document.writeln("上取整4.5 = "+Math.ceil(4.5)+"<br>");
+	document.writeln("下取整4.5 = "+Math.floor(4.5)+"<br>");
+	document.writeln("四舍五入4.5 = "+Math.round(4.5)+"<br>");
+	//random返回0到1的16位小数
+	document.writeln("random = "+Math.random()+"<br>");
+	document.writeln("random = "+Math.random()+"<br>");
+	//若想获得某个整数范围的值，就乘以相应的数
+	//获得1到100之间的整数
+	document.writeln("1到100之间的整数 = "+Math.ceil(Math.random()*100)+"<br>");
+	document.writeln("1到100之间的整数 = "+Math.ceil(Math.random()*100)+"<br>");
+
+	document.writeln("<br>");
+
+	//动态类，即必须创建对象，通过对象调用方法
+	//显示当前日期
+	//Date，提供日期和时间的操作
+	document.writeln("Date"+"<br>");
+	var nowdate = new Date();	//返回当前日期和时间
+	//需要通过实例，调用方法
+	document.writeln("nowdate = "+nowdate.toLocaleString()+"<br>");	//用当地表达方式
+	//getMonth()返回值是 0（一月） 到 11（十二月） 之间的一个整数。
+	document.writeln("年月 = "+nowdate.getFullYear()+" "+nowdate.getMonth()+"<br>");	//获得某个属性
+	document.writeln("时刻 = "+nowdate.getHours()+"<br>");	//获得某个属性
+
+	//例子：当用户浏览网页时候，根据当前时间，给出相应的问候语
+	document.writeln("当用户浏览网页时候，根据当前时间，给出相应的问候语"+"<br>");
+	function showHello(date){
+		//小时
+		var hour = date.getHours();
+		//分钟
+		var minute = date.getMinutes();
+		//时间转换
+		var now = hour+minute;
+		//思路1：把当前时间转成距离0:0的秒数，即hour*3600+minute*60
+		//
+
+		if(hour>=6 && hour<11){
+			document.writeln("早上好"+"<br>");
+		}else if(hour>=11 && hour<14){
+			document.writeln("中午好"+"<br>");
+		}else if(hour>=14 && hour<18){
+			document.writeln("下午好"+"<br>");
+		}else if(hour>=18 && hour<=24){
+			document.writeln("晚上好"+"<br>")
+		}
+	}
+	showHello(nowdate);
+
+	document.writeln("<br>");
+
+	//String，提供对字符串的操作
+	document.writeln("String"+"<br>");
+	var str = "ab cd 1234 5";
+	document.writeln("字符串 = "+str+"<br>");
+	document.writeln("长度 = "+str.length+"<br>");
+	document.writeln("字符串分割"+"<br>");
+	//分割，用数组保存
+	var arr = str.split(" ");
+	document.writeln("arr："+arr+"<br>");
+	document.writeln("字符串截取substr = "+str.substr(1,4)+"<br>");
+	document.writeln("字符串截取substring = "+str.substring(1,4)+"<br>");
+	document.writeln("指定索引1字符 = "+str.charAt(1)+"<br>");
+	//查找指定字符串
+	document.writeln("指定指定字符 = "+str.indexOf("cd")+"<br>");
+
+	document.writeln("<br>");
+
+	//Array，提供对数组的操作
+	document.writeln("Array"+"<br>");
+	var arr1 = new Array();
+	arr1[0] = 3;
+	arr1[1] = "ad";
+	document.writeln("length = "+arr1.length+"<br>");	//length = 2
+	document.writeln("arr1 = "+arr1+"<br>");	//arr1 = 3,ad
+	var arr2 = new Array(3,4,"aa","fjo","eo");
+	document.writeln("arr2 = "+arr2+"<br>");	//arr2 = 3,4,aa,fjo,eo
+	arr2[2] = "ab";
+	document.writeln("arr2 = "+arr2+"<br>");	//arr2 = 3,4,ab,fjo,eo
+	//出栈、压栈
+	arr2.pop();
+	arr2.push("入栈");
+	document.writeln("arr2 = "+arr2+"<br>");	//arr2 = 3,4,ab,fjo,入栈
+
+	document.writeln("<br>");
+
+	//Boolean，动态类
+	document.writeln("Boolean"+"<br>");
+	var bool = new Boolean(true);
+	document.writeln("bool = "+bool.toString()+"<br>");	//true
+
+	document.writeln("<br>");
+
+	//Number
+	document.writeln("Number"+"<br>");
+	var a = 89.02543;
+	document.writeln("截取并返回字符串 = "+a.toFixed(2)+"<br>");	//89.03
+	//转制
+	var b = 21;
+	document.writeln("转成二进制 = "+b.toString(2)+"<br>");	//10101
+	document.writeln("转成十六进制 = "+b.toString(16)+"<br>");	//15
+	//最大值、最小值
+	document.writeln("最大值 = "+Number.MAX_VALUE+"<br>");	//1.7976931348623157e+308
+	document.writeln("最小值 = "+Number.MIN_VALUE+"<br>");	//5e-324
+
+	document.writeln("<br>");
+
+	document.writeln("系统函数"+"<br>");
+	//将字符串当做脚本执行，eval()，用于脚本是由字符串拼接而成
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

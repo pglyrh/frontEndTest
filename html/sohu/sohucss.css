@@ -1,0 +1,108 @@
+body{
+	width:950px;
+	/*高度自适应*/
+	height:800px;
+	/*body应居中*/
+	margin:0 auto;
+	/*border:1px solid black;*/
+	font-size:12px;
+}
+/*最高处的div*/
+.top{
+	width:950px;
+	height:22px;
+	background-color:pink;
+}
+
+/*登录的div*/
+.login{
+	width:416px;
+	height:22px;
+	background-color:green;
+	float:left;
+}
+
+/*设为首页的div*/
+.indexpage{
+	width:105px;
+	height:20px;
+	background-color:gray;
+	float:left;
+	margin-left:80px;
+}
+
+/*链接的div*/
+.myhref{
+	width:250px;
+	height:20px;
+	background-color:#b4b4b4;
+	float:right;
+}
+
+/*logo的div*/
+.logo{
+	width:137px;
+	height:68px;
+	background-color:yellow;
+	float:left;
+	margin-top:5px;
+}
+
+/*导航的div*/
+.navi{
+	width:807px;
+	height:68px;
+	background-color:#7CF574;
+	float:left;
+	margin-left:3px;
+	margin-top:5px;
+}
+
+/*广告的div*/
+.ad{
+	width:950px;
+	height:212px;
+	/*background-color:red;*/
+	float:left;
+	margin-top:5px;
+	border:1px solid silver;
+}
+
+/*招生广告的div*/
+.stuad{
+	width:126px;
+	height:196px;
+	background-color:#FC7E8C;
+	float:left;
+	margin-top:5px;
+	margin-left:5px;
+}
+
+/*广告的div*/
+.ad2{
+	width:453px;
+	height:196px;
+	background-color:#FC7E8C;
+	float:left;
+	margin-top:5px;
+	margin-left:10px;
+}
+
+/*房地产广告的div*/
+.housead{
+	width:150px;
+	height:196px;
+	background-color:#FC7E8C;
+	float:left;
+	margin-top:5px;
+	margin-left:10px;
+}
+
+.picad{
+	width:185px;
+	height:212px;
+	/*background-color:#FC7E8C;*/
+	float:right;
+	border-left:1px solid silver;
+	text-align:center;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body onkeydown="getCommand(event)">
+	<h1>坦克大战</h1>
+	<!--活动区域-->
+	<canvas id="tankMap" width="400px" height="300px" style="background-color:black">
+		
+	</canvas>
+
+	<p>子弹x=<span id="heroBulletX">0</span>&nbsp;&nbsp;子弹y=<span id="heroBulletY">0</span></p>
+	<!--引入页面-->
+	<script type="text/javascript" src="tankGame2.js"></script>
+	<script type="text/javascript">
+		//得到画布
+		var can1 = document.getElementById('tankMap');
+		//得到上下文引用，画笔
+		var cxt = can1.getContext("2d");
+
+		//我的tank对象
+		//方向1（←）2（↑）3（→）4（↓）
+		var hero = new Hero(140,140,2);
+
+		
+		//定义敌人坦克
+		var enemyTanks = new Array();
+		//先创建3个
+		for (var i = 0; i < 3; i++) {
+			var enemyTank = new EnemyTank((i+1)*50,10,4);
+			//将对象加入数组中
+			enemyTanks[i] = enemyTank;
+		}
+
+		flashTankMap();
+
+		//每隔一定时间刷新画布
+		var timer = window.setInterval("flashTankMap()",100);
+
+		//定时刷新map
+		function flashTankMap() {
+			//画布清理
+			cxt.clearRect(0,0,400,300);
+			//我的坦克
+			drawTank(hero);
+			//敌人坦克
+			for (var i = 0; i < 3; i++) {
+				drawTank(enemyTanks[i]);
+			}
+			//子弹
+			drawBullet();
+		}
+
+		function getCommand (e) {
+			// body...	
+			//alert(e.keyCode);	
+			//37（←）38（↑）39（→）40（↓）32（空格）
+			switch(e.keyCode){
+				case 37:
+					hero.moveLeft();
+					break;
+				case 38:
+					hero.moveUp();
+					break;
+				case 39:
+					hero.moveRight();
+					break;
+				case 40:
+					hero.moveDown();
+					break;
+				case 32:
+					//alert("aa");
+					hero.shot();
+					break;
+			}
+			flashTankMap();
+		}
+	</script>
+</body>
+</html>

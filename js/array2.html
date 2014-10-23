@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>多维数组</title>
+  
+  <script type="text/javascript">
+	//多维数组转置
+
+	var arr = [[2,4,6,8],[8,9,0,-1],[9,6,2,1]];
+	//数组大小可动态增长，申请一个新数组，保存转置后的数组
+	var arr_new=[];
+
+	//初始化，逐级创建，定下有多少行
+	for (var i=0; i<arr[0].length; i++)
+	{
+		//开辟一个空间
+		arr_new[i]=[];
+	}
+	
+	//转置，行列互换
+	for (var i=0; i<arr.length;i++)
+	{
+		//遍历每一行数组的具体值
+		for (var j=0; j<arr[i].length;j++){
+			//行列互换
+			arr_new[j][i] = arr[i][j];//不可在未初始化时，直接互换
+		}
+	}
+
+		//输出
+		for (var i=0; i<arr_new.length;i++){
+			for (var j=0; j<arr_new[i].length;j++){
+				document.write(arr_new[i][j]+"&nbsp;");
+			}
+			document.writeln("<br>");
+		}
+		
+		
+	
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

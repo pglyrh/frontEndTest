@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>数组</title>
+  
+  <script type="text/javascript">
+	/*
+		//一位数组，求总值和平均值
+		var weights = [3,5,1,3.4,2,50];
+		var all_weight = 0;
+		var avg_weight = 0;
+		//遍历
+		for (var i=0;i<weights.length ;i++ )
+		{
+			//document.writeln(weights[i]);
+			all_weight+=weights[i];
+		}
+		//平均
+		avg_weight = all_weight/weights.length;
+		document.writeln("总数为："+all_weight+"<br>");
+		document.writeln("平均数为："+avg_weight+"<br>");
+		//保留小数点后2位(四舍五入)
+		avg_weight = new Number(avg_weight);
+		document.writeln("保留后平均数为："+avg_weight.toFixed(2));
+		//查看数据类型
+		alert(avg_weight.constructor);
+	*/
+
+	//字符串拆分
+	var str = "35 hello 哈哈 ba dw";
+	var arr = str.split(" ");
+	document.write(arr+"<br>");
+	var arr2 = str.split(" ",2);
+	document.write(arr2+"<br>");
+	//遍历
+	for (var key in arr )
+	{
+		document.write(arr[key]+"&nbsp;");
+	}
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

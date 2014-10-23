@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>dom window</title>
+	
+  <script type="text/javascript">
+
+  //删除记录按钮
+  function conf(){
+	//确认框，有确定（True）、取消（False）两个按钮
+	var res = confirm("确定删除？");
+	//确认结果
+	if(res){
+		alert("true");
+	}else{
+		alert("false");
+	}
+  }
+	
+	function sayHello(){
+		alert("hello");
+	}
+	//循环调用某个函数（根据指定时间周期(以ms为单位)）
+	//setInterval("sayHello()",10000000);
+
+	//制作简单时钟
+	function showTime(){
+		//document.writeln(new Date());
+		//在元素间的文本通过对象.innerHTML访问
+		document.getElementById("time").innerHTML = new Date().toLocaleString();
+		document.getElementById("time2").innerText= new Date().toLocaleString();
+	}
+	//循环调用某个函数
+	setInterval("showTime()",1000);
+
+	//指定时间(以ms为单位)）后，调用某个函数
+	//setTimeout("sayHello()",1000);
+
+	//状态栏滚动显示
+	function startIt(){
+		setInterval("scroll()",100);
+	}
+	//滚动
+	var space_num=0;
+	//移动方向
+	var dir = 1;
+	function scroll(){
+		//通过空格来决定文字位置
+		var space = "";
+		space_num = space_num + 1*dir;
+		//方向变更
+		if(space_num>50 || space_num<0){
+			dir = dir * (-1);
+		}
+		//添加空格
+		for (var i=0;i<space_num ;i++ )
+		{
+			space = space + " ";
+		}
+		//拼接内容
+		status = space + "状态栏";
+	}
+	
+  </script>
+ </head>
+ <body onload="startIt()">
+ 窗口<br>
+  <input type="button" value="删除记录" onclick="conf()" />
+  <div id="time"></div>
+  <div id="time2"></div>
+  <!-- moveTo()：将窗口左上角移动到指定像素点 -->
+  <input type="button" value="移动" onclick="moveTo(100,100)" />
+  <!-- moveBy()：将窗口左上角相对于当前位置移动到指定像素点 -->
+  <input type="button" value="相对移动" onclick="moveBy(-50,-50)" />
+  <br>
+  <br>
+  <!-- resizeTo()：变更窗口大小 -->
+  <input type="button" value="变更大小" onclick="resizeTo(600,800)" />
+  <br>
+<!-- 页面一加载即开始状态栏变化 -->
+ </body>
+</html>

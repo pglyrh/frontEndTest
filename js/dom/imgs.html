@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>img对象</title>
+  <link rel="stylesheet" type="text/css" href="imgsCss.css"/>	
+  <script type="text/javascript">
+	
+	function test1(){
+		$("myid1").innerText = "error";
+	}
+	function test2(){
+		$("myid2").innerText = "onload";
+	}
+
+	function $(idNum){
+		return document.getElementById(idNum);
+	}
+
+  </script>
+ </head>
+ <body>
+	<!-- 图片 -->
+	<!-- onerror事件，加载失败 -->
+	<img src="ball.jpg" onerror="test1()" onload="test2()">
+	<img src="mario.jpg" onerror="test1()" onload="test2()">
+
+	<span id="myid1"></span>
+	<span id="myid2"></span>
+ </body>
+</html>

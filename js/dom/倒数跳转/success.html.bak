@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>子窗口</title>
+	
+  <script type="text/javascript">
+
+  //数秒函数
+  function countMinus(){
+	//获得span内容，并自减
+	$("count").innerText = parseInt($("count").innerText)-1;
+  }
+
+  //输入ID名获取id号的函数
+  function $(id){
+	return document.getElementById(id);
+  }
+
+  //循环调用数秒函数
+  var se = setInterval("countMinus()",1000);
+
+  //停止循环	
+  function stop(){
+	clearInterval(se);
+  }	
+  //指定时间(以ms为单位)）后，调用某个函数
+  setTimeout("stop()",5000);
+  </script>
+ </head>
+ <body>
+  <p>登陆成功，将在<span id="count">5</span>秒后跳转到管理页面</p>
+  <input type="button" onclick="stop()"/>
+ </body>
+</html>

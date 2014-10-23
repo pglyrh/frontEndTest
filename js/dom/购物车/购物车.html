@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <link rel="stylesheet" href="shopping.css" type="text/css"/>
+
+  <title>购物车</title>
+	
+  <script type="text/javascript">
+
+	function $(idNum){
+		return document.getElementById(idNum);
+	}
+	
+	//点击复选框计算总价值
+	function compute(obj){
+		//1、因为复选框会有选中和没选中两种情况，再对总价进行修改
+		//2、遍历checkbox，计算新的总价
+		var fruits = document.getElementsByName("fruit");
+		var totalPrice = 0;
+		for (var i=0; i<fruits.length; i++)
+		{
+			//判断是否选中
+			if (fruits[i].checked)
+			{
+				totalPrice += parseFloat(fruits[i].value);
+			}
+		}
+		//更改span文本
+		$("totalValue").innerText = totalPrice;
+	}
+
+	//全选&取消相应函数
+	function selectCheck(obj){
+		//遍历所有复选框
+		var fruits = document.getElementsByName("fruit");
+		//判断
+		if (obj.id=="all")
+		{
+			for (var i=0; i<fruits.length; i++)
+			{
+				fruits[i].checked = true;
+			}
+			$("totalValue").innerText = "150";
+		}else{
+			for (var i=0; i<fruits.length; i++)
+			{
+				fruits[i].checked = false;
+			}
+			$("totalValue").innerText = "0";
+		}
+	}
+  </script>
+ </head>
+
+ <body>
+ <h1>购物车</h1>
+ <!-- 复选框 -->
+ <!-- 名字（name）一样，将value直接定义为价值以便获取 -->
+ <input type="checkbox" name="fruit" onchange="compute(this)" value="10"/>苹果 10<br>
+ <input type="checkbox" name="fruit" onclick="compute(this)" value="20"/>香蕉 20<br>
+ <input type="checkbox" name="fruit" onclick="compute(this)" value="30"/>西瓜 30<br>
+ <input type="checkbox" name="fruit" onclick="compute(this)" value="40"/>梨子 40<br>
+ <input type="checkbox" name="fruit" onclick="compute(this)" value="50"/>李子 50<br>
+ <p>总价格为：<span id="totalValue">0</span> 元</p>
+ <!-- 全选&取消 -->
+ <div>
+	<a href = "#" id="all" onclick="selectCheck(this)">全选</a>
+	&nbsp;&nbsp;
+	<a href = "#" id="cancel" onclick="selectCheck(this)">取消</a>
+ </div>
+</body>
+</html>

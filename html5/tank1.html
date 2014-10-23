@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body onkeydown="getCommand(event)">
+	<h1>坦克大战</h1>
+	<!--活动区域-->
+	<canvas id="tankMap" width="400px" height="300px" style="background-color:black">
+		
+	</canvas>
+	<!--引入页面-->
+	<script type="text/javascript" src="tankGame1.js"></script>
+	<script type="text/javascript">
+		//得到画布
+		var can1 = document.getElementById('tankMap');
+		//得到上下文引用，画笔
+		var cxt = can1.getContext("2d");
+
+		//我的tank对象
+		//方向1（←）2（↑）3（→）4（↓）
+		var hero = new Hero(140,40,2);
+		
+		drawTank(hero);
+
+		function getCommand (e) {
+			// body...
+			cxt.clearRect(0,0,400,300);
+			//37（←）38（↑）39（→）40（↓）
+			switch(e.keyCode){
+				case 37:
+					hero.moveLeft();
+					break;
+				case 38:
+					hero.moveUp();
+					break;
+				case 39:
+					hero.moveRight();
+					break;
+				case 40:
+					hero.moveDown();
+					break;
+			}
+			drawTank(hero);
+		}
+	</script>
+</body>
+</html>

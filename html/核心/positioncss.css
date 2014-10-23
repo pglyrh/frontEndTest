@@ -1,0 +1,45 @@
+/*div*/
+.div1{
+	height:200px;
+	border:1px solid red;
+	margin-bottom:10px;
+	padding-top:10px;
+}
+
+.div2{
+	position:relative;
+	left:400px;
+	top:0px;
+	height:100px;
+	width:100px;
+	background-color:green;
+	float:left;
+}
+
+.s1{
+	width:100px;
+	height:60px;
+	border:1px solid #b4b4b4;
+	background-color:gray;
+	float:left;
+	margin-left:10px;
+}
+
+#special{
+	position:relative;/*使用相对定位*/
+	left:40px;/*在原来的位置，向右移动的距离，若希望向左移动，则值为负数*/
+	top:80px;/*在原来的位置，向下移动的距离，坐标向下是变大*/
+}
+
+#special2{
+	position:absolute;/*使用绝对定位*/
+	/*参照点变为body（参照点为离自己最近的那个非标准流盒子）*/
+	left:40px;/*在原来的位置，向右移动的距离，若希望向左移动，则值为负数*/
+	top:80px;/*在原来的位置，向下移动的距离，坐标向下是变大*/
+}
+
+p{
+	margin-top:5px;
+	margin-left:5px;
+	font-size:15px;
+}

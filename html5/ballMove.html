@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<!--在body中相应onkeydown事件-->
+<body onkeydown="move(event)">
+	<h1>小球移动</h1>
+	<!--活动区域-->
+	<canvas id="test" width="400px" height="300px" style="background-color:black">
+		
+	</canvas>
+
+	<script type="text/javascript">
+		//得到画布
+		var can1 = document.getElementById('test');
+		//得到上下文引用，画笔
+		var cxt = can1.getContext("2d");
+
+		//画出红色圆球
+		var ballX = 30;
+		var ballY = 30;
+
+		darwBall();
+
+		function darwBall () {
+			// body...
+			cxt.clearRect(0,0,400,300);
+			cxt.beginPath();
+			cxt.fillStyle="red";
+			cxt.arc(ballX,ballY,10,0,360,false); 
+			cxt.closePath();
+			cxt.fill();
+		}
+		
+
+		//响应键盘事件
+		function move (e) {
+			// body...
+			//alert(e.keyCode);
+			//37（←）38（↑）39（→）40（↓）
+			switch(e.keyCode){
+				case 37:
+					ballX --;
+					break;
+				case 38:
+					ballY --;
+					break;
+				case 39:
+					ballX ++;
+					break;
+				case 40:
+					ballY ++;
+					break;
+			}
+			darwBall();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>三大特性——多态</title>
+	
+  <script type="text/javascript">
+	function Master(){
+		//主人给宠物喂食
+		//animal和food并没有区分
+		this.feed = function(animal,food){
+			document.writeln("animal构造函数"+animal.constructor);
+			document.writeln("主人给"+animal.name+"喂"+food.name+"<br>");
+		}
+	}
+	//食物
+	function Food(name){
+		this.name = name;
+		//...
+	}
+	//食物子类
+	function Fish(name){
+		this.food = Food;
+		this.food(name);
+	}
+	function Bone(name){
+		this.food = Food;
+		this.food(name);
+	}
+	//动物
+	function Animal(name)
+	{
+		this.name = name;
+		//...
+	} 
+	//动物子类
+	function Cat(name){
+		this.animal = Animal;
+		this.animal(name);
+	}
+	function Dog(name){
+		this.animal = Animal;
+		this.animal(name);
+	}
+
+	//体现多态
+	var cat = new Cat("miao");
+	var dog = new Dog("wang");
+	var fish = new Fish("yu");
+	var bone = new Bone("gu");
+
+	var master = new Master();
+	master.feed(cat,fish);
+	master.feed(dog,bone);
+	</script>
+ </head>
+ <body>
+  
+ </body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <link rel="stylesheet" href="ballCss.css" type="text/css"/>
+
+  <title>测试1</title>
+	
+  <script type="text/javascript">
+	//全局变量
+	//移动方向，纵向和横向
+	directX = 1;	//X轴方向，正为向右
+	directY = 1;	//Y轴方向，正为向下
+
+	//小球坐标
+	coordinateX = 10;
+	coordinateY = 10;
+
+	//速度
+	speed = 1;
+
+
+  //小球移动，依靠移动div定位
+	function ballMove(){
+		//球的新坐标通过加上方向确定
+		coordinateX+=directX*speed;
+		coordinateY+=directY*speed;
+
+		//修改div的left和top
+		$("ball").style.left = coordinateX+"px";
+		$("ball").style.top = coordinateY+"px";
+
+		//alert($("ball").offsetTop+$("ball").offsetHeight);
+		//alert($("bodyContainer").offsetWidth);
+
+		//碰到边界则转变方向
+		//alert($("ball").offsetWidth); //offsetWidth返回控件实际宽度
+		//（X轴转向）计算小球向左偏移的数量+小球的实际宽度，查看是否超过其容器右界或是左距小于容器左界
+		if ($("ball").offsetLeft+$("ball").offsetWidth>=$("bodyContainer").offsetLeft+$("bodyContainer").offsetWidth || $("ball").offsetLeft<=$("bodyContainer").offsetLeft)
+		{
+			//转向
+			directX = -directX;
+		}
+		//并列关系
+		//（Y轴转向）计算小球向下偏移的数量+小球的实际高度，查看是否超过其容器下界或是上距小于容器上界
+		if (($("ball").offsetTop+$("ball").offsetHeight)>=$("bodyContainer").offsetTop+$("bodyContainer").offsetHeight || $("ball").offsetTop<=$("bodyContainer").offsetTop)
+		{
+			//转向
+			directY = -directY;
+		}
+	}
+	
+	//循环调用移动函数
+	setInterval("ballMove()",10);
+
+	function $(idNum){
+		return document.getElementById(idNum);
+	}
+	
+	//元素和鼠标位置的间距
+	var deltaX = 0;
+	var deltaY = 0;
+	//选中标志位
+	var select = 0; //0为否
+
+	//拖拽
+	function startMove(div,e){
+		//alert("x: "+e.clientX);
+		//alert("this: "+div.id);
+		//更新delta
+		deltaX = e.clientX-div.offsetLeft;
+		deltaY = e.clientY-div.offsetTop;
+		//更新标志位
+		select = 1;
+	}
+
+	function move(div,e){
+		if (select)
+		{
+			//判断是否出边界
+			var x = parseInt(e.clientX-deltaX);
+			var y = parseInt(e.clientY-deltaY);
+			//不能超过边界
+			if (x>=$("bodyContainer").offsetLeft && x+div.offsetWidth<=$("bodyContainer").offsetLeft+$("bodyContainer").offsetWidth && y>=$("bodyContainer").offsetTop && y+div.offsetHeight<=$("bodyContainer").offsetTop+$("bodyContainer").offsetHeight)
+			{
+				//更新div的top和left值
+				div.style.left = x+"px";
+				div.style.top = y+"px";
+			}
+			
+		}		
+	}
+
+	function stopMove(div,e){
+		//更新标志位
+		select = 0;
+	}
+
+  </script>
+ </head>
+ <!-- 背景图&排列方式 -->
+ <body>
+ <div id="bodyContainer" class="container">
+	<!-- 拖拽div -->
+	 <div id="drag" onmousedown="startMove(this,event)" onmousemove="move(this,event)" onmouseup="stopMove(this,event)">
+
+	 </div>
+	<!-- 移动div -->
+	 <div id="ball">
+		<img src="ball.jpg" width="50px" width="50px" border="1 solid black"/>
+	 </div>	 
+ </div>
+ <input type="button" value="test" onclick="ballMove()"/>
+</body>
+</html>

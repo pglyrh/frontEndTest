@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>dom event</title>
+	
+  <script type="text/javascript">
+
+  //删除记录按钮
+  function conf(){
+	//确认框，有确定（True）、取消（False）两个按钮
+	var res = confirm("确定删除？");
+	//确认结果
+	if(res){
+		alert("true");
+	}else{
+		alert("false");
+	}
+  }
+
+ //通过getElementById获取控件后再绑定
+	//不能通过以下方式直接绑定，因为html元素还未加载
+	//document.getElementById("b2").onclick = conf;
+
+
+	//投票提示，投过一次，通过removeEventListener解绑
+	function vote(){
+		alert("已投票");
+		document.getElementById("b3").removeEventListener("click",vote,false);
+	}
+  </script>
+ </head>
+ <body>
+ 窗口
+ <!-- 直接在某个html控件上指定绑定 -->
+  <input type="button" value="删除记录" onclick="conf()" />
+
+	<!-- 通过getElementById获取控件后再绑定 -->
+	<input id="b2" type="button" value="后绑定" />
+
+	<br>
+	<!-- 投票，投过一次即无效 -->
+	<input id="b3" type="button" value="投票"/>
+ </body>
+
+  <script type="text/javascript">
+
+	document.getElementById("b2").onclick = conf;
+
+	//attachEvent方法          按钮onclick
+	//addEventListener方法    按钮click
+	document.getElementById("b3").addEventListener("click",vote,false);
+
+ </script>
+</html>

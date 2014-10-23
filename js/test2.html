@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>案例</title>
+  
+  <script type="text/javascript">
+
+	//金字塔打印
+	var n = prompt("金字塔层数：");
+	n = parseInt(n);
+
+	for (var i=1;i<=n ;i++ )
+	{
+		//打印空格
+		for (var j=0;j<n-i ;j++ )
+		{
+			document.write("&nbsp;");
+		}
+		
+		//打印符号
+		for (j=0;j<(2*i-1);j++ )
+		{
+			document.write("*");
+		}
+		document.writeln("<br>");
+	}
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

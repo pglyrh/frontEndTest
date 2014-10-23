@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <link rel="stylesheet" href="chanSwitch.css" type="text/css"/>
+
+  <title>频道切换</title>
+	
+  <script type="text/javascript">
+
+	function $(idNum){
+		return document.getElementById(idNum);
+	}
+
+	//切换
+	function change(obj){
+		//alert(obj.id);
+		switch (obj.id)
+		{
+			case "li1": 
+				c1.style.display = "block";
+				c2.style.display = "none";
+				c3.style.display = "none";
+				break;
+			case "li2": 
+				c2.style.display = "block";
+				c1.style.display = "none";
+				c3.style.display = "none";
+				break;
+			case "li3": 
+				c3.style.display = "block";
+				c2.style.display = "none";
+				c1.style.display = "none";
+				break;
+		}
+	}
+  </script>
+ </head>
+
+ <body>
+ <!-- 外围div -->
+ <div class="div1">
+	<!-- 导航切换 -->
+	<div class="navi">
+		<!-- 通过列表放置标签 -->
+		<ul>
+			<li id="li1" onclick="change(this)">1</li>
+			<li id="li2" onclick="change(this)">2</li>
+			<li id="li3" onclick="change(this)">3</li>
+		</ul>
+	</div>
+	<!-- 超链接 -->
+	<!-- 第一块 -->
+	<div class="acon" id="c1">
+		<ul>
+			<li><a href="#">c1c1c1c1c1c1c1c1</a></li>
+			<li><a href="#">c1c1c1c1c1c1c1c1</a></li>
+			<li><a href="#">c1c1c1c1c1c1c1c1</a></li>
+			<li><a href="#">c1c1c1c1c1c1c1c1</a></li>
+			<li><a href="#">c1c1c1c1c1c1c1c1</a></li>
+			<li><a href="#">c1c1c1c1c1c1c1c1</a></li>
+			<li><a href="#">c1c1c1c1c1c1c1c1</a></li>
+			<li><a href="#">c1c1c1c1c1c1c1c1</a></li>
+		</ul>
+	</div>
+	<!-- 第二块 -->
+	<div class="acon" id="c2">
+		<ul>
+			<li><a href="#">c2c2c2c2c2c2c2c2</a></li>
+			<li><a href="#">c2c2c2c2c2c2c2c2</a></li>
+			<li><a href="#">c2c2c2c2c2c2c2c2</a></li>
+			<li><a href="#">c2c2c2c2c2c2c2c2</a></li>
+			<li><a href="#">c2c2c2c2c2c2c2c2</a></li>
+			<li><a href="#">c2c2c2c2c2c2c2c2</a></li>
+			<li><a href="#">c2c2c2c2c2c2c2c2</a></li>
+			<li><a href="#">c2c2c2c2c2c2c2c2</a></li>
+		</ul>
+	</div>
+	<!-- 第三块 -->
+	<div class="acon" id="c3">
+		<ul>
+			<li><a href="#">c3c3c3c3c3c3c3c3</a></li>
+			<li><a href="#">c3c3c3c3c3c3c3c3</a></li>
+			<li><a href="#">c3c3c3c3c3c3c3c3</a></li>
+			<li><a href="#">c3c3c3c3c3c3c3c3</a></li>
+			<li><a href="#">c3c3c3c3c3c3c3c3</a></li>
+			<li><a href="#">c3c3c3c3c3c3c3c3</a></li>
+			<li><a href="#">c3c3c3c3c3c3c3c3</a></li>
+			<li><a href="#">c3c3c3c3c3c3c3c3</a></li>
+		</ul>
+	</div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>表单</title>
+  <link rel="stylesheet" type="text/css" href="formCss.css"/>	
+  <script type="text/javascript">
+	
+	function test(){
+		//如何取得所有的表单
+		var allforms = document.forms;
+		alert("allforms.length: "+allforms.length);
+		//可以通过表单集合访问指定表单
+		alert("allforms[0].username1: "+allforms[0].username1.value);
+		alert("allforms.item(1).hobby1: "+allforms.item(1).hobby1.value);
+	}
+	
+	//检查用户信息
+	function check(){
+		var spans = document.getElementsByName("sp");
+		//清空span内容
+		for (var i=0; i<spans.length; i++)
+		{
+			spans[i].innerText = "";
+		}
+
+		//获取用户名
+		if ($("username").value.length < 4 || $("username").value.length>6)
+		{
+			//提示
+			$("sp1").innerText="用户名应该在4在6位间";
+			return false;
+		}
+		
+		//密码
+		if ($("pwd1").value.length<=3)
+		{
+			$("sp2").innerText="密码需大于3位";
+			return false;
+		}
+		//判断密码相等
+		if ($("pwd1").value!=$("pwd2").value)
+		{
+			$("sp3").innerText="两次密码不同";
+			return false;
+		}
+	}
+
+	function $(idNum){
+		return document.getElementById(idNum);
+	}
+
+  </script>
+ </head>
+ <body>
+ <h1>个人信息</h1>
+ <form action="">
+	 用户名：<input type="text" name="username1" /><br>
+	 密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="pwd"/><br>
+	 <input type="submit" value="提交">
+ </form>
+
+ <h1>兴趣爱好</h1>
+ <form action="">
+	 爱好1：<input type="text" name="hobby1" /><br>
+	 爱好2：<input type="text" name="hobby2" /><br>
+	 <input type="submit" value="提交">
+ </form>
+ <br>
+ <input type="button" value="test" onclick="test()" /><br>
+
+ <h1>用户注册</h1>
+ <!-- 格式有很多要求 -->
+ <form id="register" action="">
+	<!-- 格式整齐，利用表单 -->
+	<table>
+	<tr>
+		<td class="td1">用户名</td>
+		<!-- 提示用户名在4-6位之间 -->
+		<td class="td2"><input class="sty1" type="text" name="username" id="username"/>
+		<!-- 提示一开始为隐藏状态 -->
+		<span id="sp1" name="sp" class="sp"></span>
+		</td>
+	</tr>
+	<tr>
+		<td>密码</td>
+		<td><input class="sty1" type="password" name="pwd1" id="pwd1"/>
+		<span id="sp2" name="sp" class="sp"></span>
+		</td>
+	</tr>
+	<tr>
+		<td>确认密码</td>
+		<td><input class="sty1" type="password" name="pwd2" id="pwd2"/>
+		<span id="sp3" name="sp" class="sp"></span>
+		</td>
+	</tr>
+	<tr>
+		<td>年龄</td>
+		<td><input class="sty1" type="text" name="age" /></td>
+	</tr>
+	<tr>
+		<td>电子邮件</td>
+		<td><input class="sty1" type="text" name="email" /></td>
+	</tr>
+	<tr>
+		<td>电话号码</td>
+		<td><input class="sty1" type="text" name="phone" /></td>
+	</tr>
+	<tr>
+		<!-- 或在form中采用事件onsubmit -->
+		<td><input class="but" onclick="return check()" type="submit" value="注册新用户"></td>
+		<td><input class="but" type="reset" value="重新填写"></td>
+	</tr>
+	</table>
+ </form>
+ </body>
+</html>

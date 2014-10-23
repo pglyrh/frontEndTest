@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>函数</title>
+  
+  <script type="text/javascript">
+	
+	//输入两个数，再输入一个运算符，返回运算结果
+	var num1=window.prompt("first one: ");
+	var num2=window.prompt("second one: ");
+	var operator=window.prompt("operator: ");
+
+	//调用函数
+	document.write("res = "+compute(num1,num2,operator));
+	//compute(num1,num2,operator);
+
+	//自定义函数
+	function compute(num1,num2,operator){//参数不带关键字var
+		var res = 0;
+		num1 = parseFloat(num1);
+		num2 = parseFloat(num2);
+		if(operator=="+"){
+			res = num1+num2;
+		}else if(operator=="-"){
+			res = num1-num2;
+		}else if(operator=="*"){
+			res = num1*num2;
+		}else if(operator=="/"){
+			res = num1/num2;
+		}
+		alert("res = "+res);
+		return res;
+		
+	}
+
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

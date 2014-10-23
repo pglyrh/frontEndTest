@@ -1,0 +1,22 @@
+body{
+	/*指定body边框的宽度、样式和颜色，顺序不定*/
+	border:1px solid red;
+	width:800px;
+	height:1000px;
+	/*页面居中，0表示上下为0，auto左右居中*/
+	margin:0 auto;
+}
+
+.s1{
+	width:150px;
+	height:150px;
+	border:1px solid blue;
+	margin-top:10px;
+	margin-left:10px;
+}
+
+.s1 img{
+	width:100px;
+	margin-top:25px;
+	margin-left:25px;
+}

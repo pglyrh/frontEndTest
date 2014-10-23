@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>子窗口</title>
+	
+  <script type="text/javascript">
+
+  //响应函数
+  function goback(){
+	 //length属性
+	 alert(history.length);
+	//利用history的back()函数返回
+	history.back();
+	//等同于history.go(-1)————当前页面是0，上一页面即为-1
+  }
+  </script>
+ </head>
+ <body>
+  <input type="button" id="info" value="返回上级页面窗口" onclick="goback()" />
+ </body>
+</html>

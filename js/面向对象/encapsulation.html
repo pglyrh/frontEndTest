@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  
+  <title>三大特性——封装</title>
+	
+  <script type="text/javascript">
+	function Person(name,agei,sal)
+	{
+		//public
+		this.name = name;
+		//private 
+		var age = agei;
+		var salary = sal;
+
+		//在类中定义公开方法（特权方法），私有方法（内部方法）
+		//可通过实现公开方法，操作私有属性
+		this.showAge=function()
+		{
+			//不可以使用this.age
+			alert("age: "+age);
+		}
+		//私有方法，可以访问类中私有属性
+		function showSal(){
+			alert("salary: "+sal);
+		}
+	}
+	
+	var p1 = new Person("aa",20,3000);
+	//name属性可以直接访问
+	//其余属性不可以直接通过p1访问
+	alert("name："+p1.name);
+	p1.showAge();
+	//私有方法不可直接访问
+	//p1.showSal();
+
+	//利用prototype给类添加方法
+	Person.prototype.showName = function(){
+		alert("show name："+this.name);
+	}
+	p1.showName();
+	/*
+	//通过prototype添加的方法不可以访问类的私有属性和方法
+	Person.prototype.show = function(){
+		alert("show age："+age);
+	}
+	
+	p1.show();
+	*/
+
+
+	/*
+	//创建对象的另一种方式
+	var dog = {
+		name:"D1",
+		age:3,
+		sayHello:function(a,b){
+			alert("a+b="+(a+b));
+		}
+	};
+	dog.sayHello(1,2);
+
+	//循环列出对象的所有属性和方法(值) 
+	//对象名['属性名']
+	for (var key in dog )
+	{
+		document.write(dog[key]+"&nbsp;");
+	}
+
+	//当前浏览器的window对象有哪些属性
+	document.writeln("当前浏览器的window对象有哪些属性和方法"+"<br>");
+	for (var key in window )
+	{
+		document.write(key+": "+window[key]+"<br>");
+	}
+	*/
+  </script>
+ </head>
+ <body>
+  
+ </body>
+</html>

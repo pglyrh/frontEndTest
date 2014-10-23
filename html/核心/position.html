@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <!-- 引入css文件 -->
+ <link type="text/css" rel="stylesheet" href="positioncss.css"/>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>定位</title>
+ </head>
+ <body>	
+	<!-- 原来 -->
+	<div class="div1">
+		<p>原始</p>
+		<div class="s1">div1</div>	
+		<div class="s1">div2</div>
+		<div class="s1">div3</div>
+		<div class="s1">div4</div>
+	</div>
+	<div class="div1">
+		<!-- 相对定位，相对于原先的位置 -->
+		<p>相对定位</p>
+		<div class="s1">div1</div>	
+		<div id="special" class="s1">div2</div>
+		<div class="s1">div3</div>
+		<div class="s1">div4</div>		
+	</div>		
+	<div class="div1">
+		<!-- 绝对定位，内容3补充道内容2的位置 -->
+		<p>绝对定位</p>
+		<div class="s1">div1</div>
+		<!--
+		<div id="special2" class="s1">div2</div>
+		-->
+		<div class="div2">
+			abc
+			<div id="special2" class="s1">div2</div>
+		</div>	
+		<div class="s1">div3</div>
+		<div class="s1">div4</div>
+	</div>
+	
+ </body> 
+</html>

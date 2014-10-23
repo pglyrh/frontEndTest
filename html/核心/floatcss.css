@@ -1,0 +1,21 @@
+.div1{
+	width:150px;
+	height:100px;
+	border:1px solid blue;
+	background-color:pink;
+	margin-top:5px;
+	/*让该元素尽量向左移动，让出自己右边的空间为下一个元素显示*/
+	float:left;
+}
+
+#div2{
+	/*让该元素尽量向右移动，直到碰到其父元素的右边界
+	float:right;*/
+	height:200px;
+}
+
+.div3{
+	width:600px;
+	height:600px;
+	border:1px solid green;
+}
